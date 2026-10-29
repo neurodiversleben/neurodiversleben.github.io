@@ -1,0 +1,152 @@
+/* neurodiversleben – gemeinsames Stylesheet */
+
+@font-face { font-family: "Bricolage Grotesque"; font-style: normal; font-weight: 600; font-display: swap; src: url("fonts/bricolage-grotesque-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "Bricolage Grotesque"; font-style: normal; font-weight: 700; font-display: swap; src: url("fonts/bricolage-grotesque-latin-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "Bricolage Grotesque"; font-style: normal; font-weight: 800; font-display: swap; src: url("fonts/bricolage-grotesque-latin-800-normal.woff2") format("woff2"); }
+@font-face { font-family: "Instrument Sans"; font-style: normal; font-weight: 400; font-display: swap; src: url("fonts/instrument-sans-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Instrument Sans"; font-style: normal; font-weight: 500; font-display: swap; src: url("fonts/instrument-sans-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Instrument Sans"; font-style: normal; font-weight: 600; font-display: swap; src: url("fonts/instrument-sans-latin-600-normal.woff2") format("woff2"); }
+
+:root {
+  --lila: #5B16D6;
+  --lila-hell: #EDE6FB;
+  --limette: #C4F000;
+  --limette-hell: #EFF7CC;
+  --anthrazit: #2B2B33;
+  --text-2: #4A4A52;
+  --text-3: #6B6B73;
+  --linie: #E3E2DC;
+  --grund: #FAF9F5;
+  --weiss: #FFFFFF;
+  --display: "Bricolage Grotesque", system-ui, sans-serif;
+  --body: "Instrument Sans", system-ui, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--grund); color: var(--anthrazit); font-family: var(--body); font-size: 17px; line-height: 1.6; }
+img { max-width: 100%; display: block; }
+a { color: var(--anthrazit); }
+a:hover { color: var(--lila); }
+:focus-visible { outline: 3px solid var(--lila); outline-offset: 3px; border-radius: 4px; }
+[id] { scroll-margin-top: 24px; }
+
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+.skip { position: absolute; left: -9999px; }
+.skip:focus { left: 16px; top: 16px; background: var(--weiss); padding: 8px 12px; z-index: 10; }
+
+/* Header */
+.site-header .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding-top: 28px; padding-bottom: 28px; }
+.brand { display: inline-flex; align-items: center; gap: 10px; font-family: var(--display); font-weight: 800; font-size: 20px; letter-spacing: -0.3px; text-decoration: none; color: var(--anthrazit); }
+.brand svg { flex-shrink: 0; }
+.nav { display: flex; flex-wrap: wrap; gap: 8px 28px; font-size: 15px; font-weight: 500; }
+.nav a { text-decoration: none; }
+
+/* Typo */
+h1, h2, h3, h4 { font-family: var(--display); font-weight: 800; letter-spacing: -1px; line-height: 1.05; margin: 0; }
+.h1 { font-size: clamp(44px, 7vw, 92px); line-height: 1.0; letter-spacing: -2.5px; max-width: 960px; }
+.h2 { font-size: clamp(32px, 4vw, 48px); }
+.marker { background: linear-gradient(transparent 58%, var(--limette) 58%, var(--limette) 92%, transparent 92%); padding: 0 4px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.lead { font-size: 20px; color: var(--text-2); max-width: 580px; margin: 0; }
+.eyebrow { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-3); margin: 0; }
+.pill { align-self: flex-start; display: inline-block; padding: 6px 14px; border-radius: 999px; background: var(--lila-hell); color: var(--lila); font-size: 14px; font-weight: 600; }
+
+/* Buttons */
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 28px; border-radius: 999px; border: none; font: inherit; font-weight: 600; text-decoration: none; cursor: pointer; }
+.btn-lila { background: var(--lila); color: var(--weiss); }
+.btn-lila:hover { background: #4A10B3; color: var(--weiss); }
+.btn-dunkel { background: var(--anthrazit); color: var(--grund); }
+.btn-dunkel:hover { background: #000; color: var(--grund); }
+.btn-limette { background: var(--limette); color: var(--anthrazit); }
+.btn-limette:hover { background: #B0D800; color: var(--anthrazit); }
+.btn-klein { min-height: 44px; padding: 0 18px; font-weight: 500; }
+.link-pfeil { display: inline-flex; align-items: center; min-height: 44px; font-weight: 600; }
+
+/* Hero */
+.hero { display: flex; flex-direction: column; gap: 28px; padding-top: 88px; padding-bottom: 112px; }
+.hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 24px; }
+
+/* Angebote */
+.section { padding-bottom: 112px; }
+.stack { display: flex; flex-direction: column; gap: 20px; }
+.stack-l { display: flex; flex-direction: column; gap: 48px; }
+.filter { display: flex; flex-wrap: wrap; gap: 8px; }
+.filter button { min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #D9D8D2; background: var(--weiss); color: var(--anthrazit); font: inherit; font-size: 15px; font-weight: 500; cursor: pointer; }
+.filter button[aria-pressed="true"] { background: var(--anthrazit); border-color: var(--anthrazit); color: var(--grund); }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
+.card { border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 12px; }
+.card[hidden] { display: none; }
+.card h4 { font-weight: 700; font-size: 26px; line-height: 1.1; letter-spacing: -0.5px; }
+.card p { margin: 0; }
+.card .desc { flex-grow: 1; }
+.card-kauf { background: var(--weiss); box-shadow: 0 1px 0 var(--linie); }
+.card-kauf .desc { color: var(--text-2); }
+.card-kauf .tag { background: var(--lila-hell); color: var(--lila); }
+.card-gratis { background: var(--limette-hell); }
+.card-gratis .desc { color: #3B3B43; }
+.card-gratis .tag { background: var(--limette); color: var(--anthrazit); }
+.tag { align-self: flex-start; padding: 4px 12px; border-radius: 999px; font-size: 13px; font-weight: 600; }
+.card-fuss { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 12px; }
+.preis { font-family: var(--display); font-weight: 700; font-size: 22px; }
+.leer { color: var(--text-3); margin: 0; }
+
+/* Über mich */
+.ueber { display: flex; flex-wrap: wrap; gap: 48px; align-items: center; }
+.ueber img { flex: 1 1 240px; max-width: 340px; width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 24px; }
+.ueber-text { flex: 999 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 16px; }
+.ueber-text p { margin: 0; font-size: 19px; color: var(--text-2); max-width: 560px; }
+
+/* Newsletter */
+.newsletter { background: var(--lila); color: var(--weiss); border-radius: 28px; padding: 56px clamp(24px, 5vw, 64px); display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-end; justify-content: space-between; }
+.newsletter-text { flex: 1 1 340px; display: flex; flex-direction: column; gap: 10px; }
+.newsletter-text h2 { font-size: clamp(30px, 3.5vw, 44px); }
+.newsletter-text p { margin: 0; color: #E6DDFB; max-width: 460px; }
+.newsletter-form { flex: 1 1 380px; }
+
+/* Formulare */
+.feld { display: flex; flex-direction: column; gap: 4px; }
+.feld label { font-size: 14px; color: var(--text-3); }
+.feld input, .feld select, .feld textarea { min-height: 48px; padding: 0; border: none; border-bottom: 1px solid var(--anthrazit); background: transparent; color: var(--anthrazit); font: inherit; font-size: 17px; border-radius: 0; }
+.feld textarea { padding: 12px 0; resize: vertical; }
+.check { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; color: var(--text-2); }
+.check input { width: 20px; height: 20px; margin-top: 3px; accent-color: var(--anthrazit); flex-shrink: 0; }
+.formular { display: flex; flex-direction: column; gap: 28px; }
+.status { padding-top: 24px; border-top: 1px solid var(--anthrazit); }
+.status h2 { font-weight: 700; font-size: 26px; letter-spacing: -0.5px; margin-bottom: 6px; }
+.status p { margin: 0; color: var(--text-3); }
+.fehler { color: #B3261E; margin: 0; }
+
+/* Textseiten */
+.textseite { max-width: 680px; margin: 0 auto; padding: 72px 24px 120px; display: flex; flex-direction: column; gap: 32px; }
+.textseite h1 { font-size: clamp(36px, 5vw, 56px); line-height: 1.1; }
+.textseite h2 { font-family: var(--body); font-weight: 600; font-size: 17px; letter-spacing: 0; line-height: 1.6; }
+.textseite section { display: flex; flex-direction: column; gap: 6px; }
+.textseite p { margin: 0; }
+.textseite a { color: var(--lila); }
+.unterzeile { color: var(--text-3); }
+
+/* Footer */
+.site-footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 28px; justify-content: space-between; align-items: center; font-size: 14px; color: var(--text-3); padding-top: 32px; padding-bottom: 48px; border-top: 1px solid var(--linie); }
+.site-footer nav { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+.site-footer a { color: var(--text-3); }
+.footer-btn { background: none; border: none; padding: 0; font: inherit; color: var(--text-3); text-decoration: underline; cursor: pointer; }
+
+/* Cookie-Hinweis */
+#nl-consent { position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 99; max-width: 520px; margin: 0 auto; background: var(--anthrazit); color: #E6E2F2; border-radius: 20px; padding: 20px; box-shadow: 0 12px 40px rgba(0,0,0,.25); display: none; }
+#nl-consent.show { display: block; }
+#nl-consent p { margin: 0 0 14px; font-size: 14px; line-height: 1.55; }
+#nl-consent a { color: var(--limette); }
+#nl-consent .nl-btns { display: flex; gap: 10px; flex-wrap: wrap; }
+#nl-consent button { flex: 1 1 140px; min-height: 44px; border-radius: 999px; font: inherit; font-size: 15px; font-weight: 600; cursor: pointer; border: 1px solid var(--grund); }
+#nl-consent .nl-accept { background: var(--limette); color: var(--anthrazit); border-color: var(--limette); }
+#nl-consent .nl-decline { background: transparent; color: var(--grund); }
+
+@media (max-width: 600px) {
+  .hero { padding-top: 48px; padding-bottom: 72px; }
+  .section { padding-bottom: 72px; }
+  .card { padding: 24px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

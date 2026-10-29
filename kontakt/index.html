@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kontakt – neurodiversleben</title>
+<meta name="description" content="Schreib mir: Fragen zu Guides oder Kursen, Kooperationen oder Presseanfragen.">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<a class="skip" href="#inhalt">Zum Inhalt springen</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/assets/logo.svg" width="26" height="29" alt="">neurodiversleben</a>
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a href="/#angebote">Angebote</a>
+      <a href="/#gratis">Gratis-Guides</a>
+      <a href="/#ueber">Über mich</a>
+      <a href="/kontakt/" aria-current="page">Kontakt</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inhalt" class="textseite" style="max-width: 600px">
+  <div class="stack" style="gap: 10px">
+    <h1>Schreib mir</h1>
+    <p class="unterzeile">Fragen zu Guides oder Kursen, Kooperationen oder Presseanfragen. Ich antworte, sobald ich kann, meistens innerhalb weniger Tage.</p>
+  </div>
+
+  <form id="kontakt-form" class="formular" action="https://api.web3forms.com/submit" method="POST">
+    <input type="hidden" name="access_key" value="497e3c9c-d35a-462a-9ad7-f7d951796f9c">
+    <input type="hidden" name="subject" value="Neue Nachricht über neurodiversleben">
+    <input type="hidden" name="from_name" value="neurodiversleben Website">
+    <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none">
+
+    <div class="feld">
+      <label for="k-name">Name</label>
+      <input id="k-name" name="name" type="text" autocomplete="name" required>
+    </div>
+    <div class="feld">
+      <label for="k-mail">E-Mail-Adresse</label>
+      <input id="k-mail" name="email" type="email" autocomplete="email" required>
+    </div>
+    <div class="feld">
+      <label for="k-thema">Worum geht es?</label>
+      <select id="k-thema" name="thema">
+        <option>Frage zu einem Produkt</option>
+        <option>Kooperation</option>
+        <option>Presse</option>
+        <option>Etwas anderes</option>
+      </select>
+    </div>
+    <div class="feld">
+      <label for="k-msg">Nachricht</label>
+      <textarea id="k-msg" name="message" rows="6" required></textarea>
+    </div>
+    <div class="check">
+      <input id="k-ds" type="checkbox" required>
+      <label for="k-ds">Ich habe die <a href="/datenschutz/#kontakt">Datenschutzerklärung</a> gelesen und bin einverstanden, dass meine Angaben zur Beantwortung meiner Anfrage verwendet werden.</label>
+    </div>
+    <p class="fehler" id="k-fehler" role="alert" hidden>Das hat leider nicht geklappt. Bitte versuch es nochmal oder schreib mir direkt an <a href="mailto:sabrina.u.geissler@icloud.com">sabrina.u.geissler@icloud.com</a>.</p>
+    <button type="submit" class="btn btn-lila" style="align-self: flex-start">Nachricht senden</button>
+  </form>
+
+  <div id="k-danke" class="status" role="status" hidden>
+    <h2>Danke, ist angekommen.</h2>
+    <p>Ich melde mich bei dir, sobald ich kann.</p>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© neurodiversleben</span>
+    <nav aria-label="Footer">
+      <a href="/impressum/">Impressum</a>
+      <a href="/datenschutz/">Datenschutz</a>
+      <button type="button" class="footer-btn" data-cookie-settings>Cookie-Einstellungen</button>
+    </nav>
+  </div>
+</footer>
+
+<div id="nl-consent" role="dialog" aria-live="polite" aria-label="Cookie-Einwilligung">
+  <p>Ich nutze einen Marketing-Pixel (Meta), um zu sehen, ob meine Anzeigen funktionieren. Der lädt nur, wenn du zustimmst. Mehr dazu in der <a href="/datenschutz/">Datenschutzerklärung</a>.</p>
+  <div class="nl-btns">
+    <button type="button" class="nl-accept" id="nl-accept">Akzeptieren</button>
+    <button type="button" class="nl-decline" id="nl-decline">Nur Notwendige</button>
+  </div>
+</div>
+<script src="/assets/site.js"></script>
+<script>
+(function () {
+  var form = document.getElementById('kontakt-form');
+  var danke = document.getElementById('k-danke');
+  var fehler = document.getElementById('k-fehler');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    fehler.hidden = true;
+    var btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true; btn.textContent = 'Wird gesendet …';
+    fetch(form.action, { method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(form) })
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        if (data && data.success) { form.hidden = true; danke.hidden = false; danke.focus && danke.setAttribute('tabindex', '-1'); danke.focus(); }
+        else { throw new Error('fail'); }
+      })
+      .catch(function () { fehler.hidden = false; btn.disabled = false; btn.textContent = 'Nachricht senden'; });
+  });
+})();
+</script>
+</body>
+</html>

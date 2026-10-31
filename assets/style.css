@@ -102,6 +102,15 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 800; letter-spacing: 
 .newsletter-text h2 { font-size: clamp(30px, 3.5vw, 44px); }
 .newsletter-text p { margin: 0; color: #E6DDFB; max-width: 460px; }
 .newsletter-form { flex: 1 1 380px; }
+.nl-form { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end; margin: 0; }
+.nl-form .ml-form-formContent { flex: 1 1 220px; }
+.nl-form .ml-field-group { display: flex; flex-direction: column; gap: 4px; }
+.nl-form label { font-size: 14px; color: #E6DDFB; }
+.nl-form input[type="email"] { min-height: 52px; width: 100%; padding: 0 18px; border-radius: 999px; border: 2px solid transparent; background: var(--weiss); color: var(--anthrazit); font: inherit; font-size: 16px; }
+.nl-form .ml-error input { border-color: #FFB4AB; }
+.nl-hinweis { margin: 12px 0 0; font-size: 14px; color: #E6DDFB; }
+.nl-hinweis a, .nl-danke a { color: var(--weiss); }
+.nl-danke { margin: 0; font-size: 17px; color: var(--weiss); max-width: 420px; }
 
 /* Formulare */
 .feld { display: flex; flex-direction: column; gap: 4px; }

@@ -144,7 +144,40 @@
       <p>Neue Guides, Hintergründe und Angebote. Abmelden geht jederzeit mit einem Klick.</p>
     </div>
     <div class="newsletter-form">
-      <!-- NEWSLETTER: hier kommt das eingebettete MailerLite-Formular hin -->
+      <!-- MailerLite-Formular 47878869 (Gruppe Newsletter), Struktur muss für webforms.min.js erhalten bleiben -->
+      <div id="mlb2-47878869" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-47878869">
+        <div class="ml-form-embedBody row-form">
+          <form class="ml-block-form nl-form" action="https://assets.mailerlite.com/jsonp/2344410/forms/202873513696036742/subscribe" data-code="" method="post" target="_blank">
+            <div class="ml-form-formContent">
+              <div class="ml-form-fieldRow ml-last-item">
+                <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+                  <label for="nl-mail">E-Mail-Adresse</label>
+                  <input id="nl-mail" type="email" class="form-control" data-inputmask="" name="fields[email]" placeholder="name@beispiel.at" autocomplete="email" aria-required="true">
+                </div>
+              </div>
+            </div>
+            <input type="hidden" name="ml-submit" value="1">
+            <div class="ml-form-embedSubmit">
+              <button type="submit" class="primary btn btn-limette">Anmelden</button>
+              <button disabled="disabled" style="display: none;" type="button" class="loading btn btn-limette">Wird gesendet …</button>
+            </div>
+            <input type="hidden" name="anticsrf" value="true">
+          </form>
+          <p class="nl-hinweis">Du bekommst eine Mail, mit der du die Anmeldung bestätigst. Mehr in der <a href="/datenschutz/">Datenschutzerklärung</a>.</p>
+        </div>
+        <div class="ml-form-successBody row-success" style="display: none" role="status">
+          <p class="nl-danke"><strong>Fast geschafft.</strong> Schau in dein Postfach und bestätige deine Anmeldung. Falls nichts kommt, such auch im Spam-Ordner.</p>
+        </div>
+      </div>
+      <script>
+        function ml_webform_success_47878869() {
+          var $ = window.ml_jQuery || window.jQuery;
+          $('.ml-subscribe-form-47878869 .row-success').show();
+          $('.ml-subscribe-form-47878869 .row-form').hide();
+        }
+      </script>
+      <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v83147fa8ce2d95cb73ece7f28b469519" type="text/javascript"></script>
+      <script>fetch("https://assets.mailerlite.com/jsonp/2344410/forms/202873513696036742/takel")</script>
     </div>
   </div>
 </section>

@@ -106,3 +106,12 @@
 .lp-sessions p { margin: 0; color: var(--text-2); }
 .lp-sessions .lp-modul { display: inline-block; margin-bottom: 4px; font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--lila); }
 [data-phase][hidden] { display: none !important; }
+
+/* Guide oder Kurs */
+.lp-vergleich .lp-kachel { display: flex; flex-direction: column; gap: 12px; }
+.lp-vergleich .lp-kachel h3 { margin: 0; }
+.lp-vergleich .tag { align-self: flex-start; }
+.lp-vergleich .btn, .lp-hier { align-self: flex-start; margin-top: auto; }
+.lp-vergleich-kurz { font-weight: 600; color: var(--anthrazit) !important; }
+.lp-aktiv { outline: 3px solid var(--limette); outline-offset: -3px; }
+.lp-hier { display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 999px; background: var(--limette); font-weight: 600; font-size: 15px; }

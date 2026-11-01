@@ -1,0 +1,49 @@
+/* neurodiversleben – Bausteine für Landingpages (ergänzt style.css) */
+
+.pill-limette { background: var(--limette); color: var(--anthrazit); }
+
+.lp-hero { display: flex; flex-wrap: wrap; gap: 48px; align-items: center; padding-top: 72px; padding-bottom: 96px; }
+.lp-hero-text { flex: 999 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 20px; }
+.lp-hero .h1 { font-size: clamp(44px, 6.5vw, 84px); }
+.lp-claim { margin: 0; font-family: var(--body); font-weight: 600; font-size: clamp(19px, 2vw, 22px); line-height: 1.4; }
+
+.lp-form-card { flex: 1 1 340px; min-width: 0; background: var(--weiss); border-radius: 24px; padding: 28px; box-shadow: 0 1px 0 var(--linie); }
+.lp-form-titel { margin: 0 0 16px; font-family: var(--display); font-size: 30px; text-transform: uppercase; letter-spacing: 0.04em; line-height: 1.1; }
+.lp-form { display: flex; flex-direction: column; gap: 14px; margin: 0; }
+.lp-form .ml-field-group { display: flex; flex-direction: column; gap: 6px; }
+.lp-form label { font-size: 14px; color: var(--text-3); }
+.lp-form input[type="email"] { min-height: 52px; width: 100%; padding: 0 18px; border-radius: 999px; border: 1px solid #D9D8D2; background: var(--grund); color: var(--anthrazit); font: inherit; font-size: 16px; }
+.lp-form .ml-error input { border-color: #B3261E; }
+.lp-form .btn { width: 100%; }
+.lp-form-hinweis { margin: 14px 0 0; font-size: 14px; color: var(--text-3); line-height: 1.5; }
+.lp-form-hinweis a { color: var(--text-3); }
+
+.lp-block { padding-bottom: 96px; display: flex; flex-direction: column; gap: 24px; }
+.lp-zwei { display: flex; flex-wrap: wrap; gap: 24px 64px; }
+.lp-zwei .h2 { flex: 1 1 260px; }
+.lp-text { flex: 999 1 480px; min-width: 0; max-width: 640px; display: flex; flex-direction: column; gap: 16px; font-size: 18px; color: var(--text-2); }
+.lp-text p { margin: 0; }
+
+.lp-liste { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+.lp-liste li { background: var(--weiss); border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 10px; box-shadow: 0 1px 0 var(--linie); color: var(--text-2); }
+.lp-liste strong { color: var(--anthrazit); font-weight: 600; }
+.lp-nr { font-family: var(--display); font-size: 38px; line-height: 1; color: var(--lila); }
+
+.lp-zitat { background: var(--lila); color: var(--weiss); border-radius: 28px; padding: 56px clamp(24px, 5vw, 72px); display: flex; flex-direction: column; gap: 16px; }
+.lp-zitat-label { margin: 0; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: var(--limette); }
+.lp-zitat blockquote { margin: 0; max-width: 880px; font-family: var(--display); font-size: clamp(26px, 3.2vw, 40px); line-height: 1.25; text-transform: uppercase; letter-spacing: 0.03em; }
+.lp-hl { background: var(--limette); color: var(--anthrazit); padding: 0 8px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+
+.lp-kacheln { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+.lp-kachel { background: var(--limette-hell); border-radius: 20px; padding: 24px; }
+.lp-kachel h3 { font-size: 26px; margin-bottom: 8px; }
+.lp-kachel p { margin: 0; color: #3B3B43; }
+.lp-cta { align-self: flex-start; }
+
+.lp-disclaimer { margin: 0; max-width: 720px; font-size: 14px; color: var(--text-3); padding-top: 24px; border-top: 1px solid var(--linie); }
+
+@media (max-width: 600px) {
+  .lp-hero { padding-top: 40px; padding-bottom: 64px; }
+  .lp-block { padding-bottom: 64px; }
+  .lp-form-card { padding: 22px; }
+}

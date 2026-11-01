@@ -1,11 +1,10 @@
 /* neurodiversleben – gemeinsames Stylesheet */
 
-@font-face { font-family: "Bricolage Grotesque"; font-style: normal; font-weight: 600; font-display: swap; src: url("fonts/bricolage-grotesque-latin-600-normal.woff2") format("woff2"); }
-@font-face { font-family: "Bricolage Grotesque"; font-style: normal; font-weight: 700; font-display: swap; src: url("fonts/bricolage-grotesque-latin-700-normal.woff2") format("woff2"); }
-@font-face { font-family: "Bricolage Grotesque"; font-style: normal; font-weight: 800; font-display: swap; src: url("fonts/bricolage-grotesque-latin-800-normal.woff2") format("woff2"); }
-@font-face { font-family: "Instrument Sans"; font-style: normal; font-weight: 400; font-display: swap; src: url("fonts/instrument-sans-latin-400-normal.woff2") format("woff2"); }
-@font-face { font-family: "Instrument Sans"; font-style: normal; font-weight: 500; font-display: swap; src: url("fonts/instrument-sans-latin-500-normal.woff2") format("woff2"); }
-@font-face { font-family: "Instrument Sans"; font-style: normal; font-weight: 600; font-display: swap; src: url("fonts/instrument-sans-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "Gochi Hand"; font-style: normal; font-weight: 400; font-display: swap; src: url("fonts/gochi-hand-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-style: normal; font-weight: 400; font-display: swap; src: url("fonts/poppins-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-style: normal; font-weight: 500; font-display: swap; src: url("fonts/poppins-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-style: normal; font-weight: 600; font-display: swap; src: url("fonts/poppins-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-style: normal; font-weight: 700; font-display: swap; src: url("fonts/poppins-latin-700-normal.woff2") format("woff2"); }
 
 :root {
   --lila: #5B16D6;
@@ -18,13 +17,13 @@
   --linie: #E3E2DC;
   --grund: #FAF9F5;
   --weiss: #FFFFFF;
-  --display: "Bricolage Grotesque", system-ui, sans-serif;
-  --body: "Instrument Sans", system-ui, sans-serif;
+  --display: "Gochi Hand", "Comic Neue", system-ui, sans-serif;
+  --body: "Poppins", system-ui, sans-serif;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-body { margin: 0; background: var(--grund); color: var(--anthrazit); font-family: var(--body); font-size: 17px; line-height: 1.6; }
+body { margin: 0; background: var(--grund); color: var(--anthrazit); font-family: var(--body); font-size: 16px; line-height: 1.7; letter-spacing: 0.02em; }
 img { max-width: 100%; display: block; }
 a { color: var(--anthrazit); }
 a:hover { color: var(--lila); }
@@ -37,18 +36,18 @@ a:hover { color: var(--lila); }
 
 /* Header */
 .site-header .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding-top: 28px; padding-bottom: 28px; }
-.brand { display: inline-flex; align-items: center; gap: 10px; font-family: var(--display); font-weight: 800; font-size: 20px; letter-spacing: -0.3px; text-decoration: none; color: var(--anthrazit); }
+.brand { display: inline-flex; align-items: center; gap: 10px; font-family: var(--body); font-weight: 600; font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; color: var(--anthrazit); }
 .brand svg { flex-shrink: 0; }
 .nav { display: flex; flex-wrap: wrap; gap: 8px 28px; font-size: 15px; font-weight: 500; }
 .nav a { text-decoration: none; }
 
 /* Typo */
-h1, h2, h3, h4 { font-family: var(--display); font-weight: 800; letter-spacing: -1px; line-height: 1.05; margin: 0; }
-.h1 { font-size: clamp(44px, 7vw, 92px); line-height: 1.0; letter-spacing: -2.5px; max-width: 960px; }
+h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; text-transform: uppercase; letter-spacing: 0.04em; line-height: 1.15; margin: 0; }
+.h1 { font-size: clamp(40px, 6.4vw, 84px); line-height: 1.15; max-width: 980px; }
 .h2 { font-size: clamp(32px, 4vw, 48px); }
-.marker { background: linear-gradient(transparent 58%, var(--limette) 58%, var(--limette) 92%, transparent 92%); padding: 0 4px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.marker { background: var(--limette); padding: 0 10px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
 .lead { font-size: 20px; color: var(--text-2); max-width: 580px; margin: 0; }
-.eyebrow { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-3); margin: 0; }
+.eyebrow { font-family: var(--body); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-3); margin: 0; }
 .pill { align-self: flex-start; display: inline-block; padding: 6px 14px; border-radius: 999px; background: var(--lila-hell); color: var(--lila); font-size: 14px; font-weight: 600; }
 
 /* Buttons */
@@ -76,7 +75,7 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 800; letter-spacing: 
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
 .card { border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 12px; }
 .card[hidden] { display: none; }
-.card h4 { font-weight: 700; font-size: 26px; line-height: 1.1; letter-spacing: -0.5px; }
+.card h4 { font-size: 28px; line-height: 1.1; }
 .card p { margin: 0; }
 .card .desc { flex-grow: 1; }
 .card-kauf { background: var(--weiss); box-shadow: 0 1px 0 var(--linie); }
@@ -87,7 +86,7 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 800; letter-spacing: 
 .card-gratis .tag { background: var(--limette); color: var(--anthrazit); }
 .tag { align-self: flex-start; padding: 4px 12px; border-radius: 999px; font-size: 13px; font-weight: 600; }
 .card-fuss { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 12px; }
-.preis { font-family: var(--display); font-weight: 700; font-size: 22px; }
+.preis { font-family: var(--display); font-size: 28px; }
 .leer { color: var(--text-3); margin: 0; }
 
 /* Über mich */
@@ -121,14 +120,14 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 800; letter-spacing: 
 .check input { width: 20px; height: 20px; margin-top: 3px; accent-color: var(--anthrazit); flex-shrink: 0; }
 .formular { display: flex; flex-direction: column; gap: 28px; }
 .status { padding-top: 24px; border-top: 1px solid var(--anthrazit); }
-.status h2 { font-weight: 700; font-size: 26px; letter-spacing: -0.5px; margin-bottom: 6px; }
+.status h2 { font-size: 30px; margin-bottom: 6px; }
 .status p { margin: 0; color: var(--text-3); }
 .fehler { color: #B3261E; margin: 0; }
 
 /* Textseiten */
 .textseite { max-width: 680px; margin: 0 auto; padding: 72px 24px 120px; display: flex; flex-direction: column; gap: 32px; }
 .textseite h1 { font-size: clamp(36px, 5vw, 56px); line-height: 1.1; }
-.textseite h2 { font-family: var(--body); font-weight: 600; font-size: 17px; letter-spacing: 0; line-height: 1.6; }
+.textseite h2 { font-family: var(--body); font-weight: 600; font-size: 16px; text-transform: none; letter-spacing: 0.02em; line-height: 1.6; }
 .textseite section { display: flex; flex-direction: column; gap: 6px; }
 .textseite p { margin: 0; }
 .textseite a { color: var(--lila); }

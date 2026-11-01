@@ -20,8 +20,8 @@
 
 .lp-block { padding-bottom: 96px; display: flex; flex-direction: column; gap: 24px; }
 .lp-zwei { display: flex; flex-wrap: wrap; gap: 24px 64px; }
-.lp-zwei .h2 { flex: 1 1 260px; }
-.lp-text { flex: 999 1 480px; min-width: 0; max-width: 640px; display: flex; flex-direction: column; gap: 16px; font-size: 18px; color: var(--text-2); }
+.lp-zwei .h2 { flex: 1 1 400px; font-size: clamp(30px, 3.2vw, 42px); }
+.lp-text { flex: 1 1 440px; min-width: 0; max-width: 640px; display: flex; flex-direction: column; gap: 16px; font-size: 18px; color: var(--text-2); }
 .lp-text p { margin: 0; }
 
 .lp-liste { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
@@ -47,3 +47,34 @@
   .lp-block { padding-bottom: 64px; }
   .lp-form-card { padding: 22px; }
 }
+
+/* Listen mit Häkchen und Punkten */
+.lp-checks { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px; max-width: 760px; }
+.lp-checks li { position: relative; padding: 14px 18px 14px 52px; background: var(--weiss); border-radius: 16px; box-shadow: 0 1px 0 var(--linie); color: var(--text-2); }
+.lp-checks li::before { content: ""; position: absolute; left: 18px; top: 17px; width: 20px; height: 20px; border-radius: 50%; background: var(--limette) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 10.5l3 3 7-7' fill='none' stroke='%232B2B33' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px no-repeat; }
+.lp-punkte { margin: 0; padding: 0 0 0 20px; display: flex; flex-direction: column; gap: 8px; color: #3B3B43; }
+.lp-kachel-weiss { background: var(--weiss); box-shadow: 0 1px 0 var(--linie); }
+.lp-stimmen { margin: 0; font-style: italic; color: var(--text-3); max-width: 760px; }
+
+/* Text im Zitat-Block */
+.lp-zitat-text { margin: 0; max-width: 760px; color: #E6DDFB; font-size: 17px; }
+.lp-zitat-text a { color: var(--limette); }
+
+/* Kaufen */
+.lp-preis { margin: 0 0 4px; font-family: var(--display); font-size: 52px; line-height: 1; }
+.lp-kauf-btn { width: 100%; margin-top: 16px; }
+.lp-kauf-band { background: var(--anthrazit); color: var(--grund); border-radius: 28px; padding: 48px clamp(24px, 5vw, 64px); display: flex; flex-wrap: wrap; gap: 32px; align-items: center; justify-content: space-between; }
+.lp-kauf-band > div:first-child { flex: 1 1 380px; display: flex; flex-direction: column; gap: 12px; }
+.lp-kauf-band p { margin: 0; color: #D9D8D2; max-width: 560px; }
+.lp-kauf-band .lp-zitat-label { color: var(--limette); }
+.lp-kauf-band-aktion { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }
+.lp-kauf-band-aktion .lp-preis { color: var(--limette); }
+
+/* FAQ */
+.lp-faq { display: flex; flex-direction: column; gap: 10px; max-width: 820px; }
+.lp-faq details { background: var(--weiss); border-radius: 16px; box-shadow: 0 1px 0 var(--linie); padding: 0 20px; }
+.lp-faq summary { cursor: pointer; padding: 18px 0; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+.lp-faq summary::-webkit-details-marker { display: none; }
+.lp-faq summary::after { content: "+"; font-family: var(--display); font-size: 26px; line-height: 1; color: var(--lila); }
+.lp-faq details[open] summary::after { content: "–"; }
+.lp-faq details p { margin: 0 0 18px; color: var(--text-2); }

@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Scham-Test · neurodiversleben</title>
+<meta name="description" content="Du ruhst dich aus und erholst dich trotzdem nie? Finde in 3 Minuten heraus, welche innere Kritikerin dir deine Pausen schwer macht.">
+<meta property="og:title" content="Du ruhst dich aus und erholst dich trotzdem nie? Vielleicht ist es Scham.">
+<meta property="og:description" content="Der Scham-Test von neurodiversleben: 10 Fragen, 3 Minuten, gratis.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Poppins:wght@400;500;600&display=swap">
+<style>
+/* Layout: eine ruhige Spalte, ein Schritt pro Bildschirm (Intro → Frage → Ergebnis → Mail) */
+:root{
+  --lila:#5B16D6; --lila-soft:#EEE6FD; --lime:#C4F000;
+  --ink:#2B2B33; --muted:#66627A; --paper:#FAF9F5; --card:#FFFFFF; --line:#E4E0EC;
+  --hand:"Gochi Hand","Comic Sans MS",cursive; --body:"Poppins",system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:640px;margin:0 auto;padding:28px max(18px,env(safe-area-inset-left)) 64px max(18px,env(safe-area-inset-right))}
+.brand{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:28px}
+.brand b{color:var(--lila);font-weight:600}
+h1{font-family:var(--hand);font-weight:400;font-size:clamp(2.2rem,7vw,3.1rem);line-height:1.08;margin:0 0 14px;text-wrap:balance}
+h1 mark{background:linear-gradient(transparent 55%,var(--lime) 55%);color:inherit;padding:0 .1em}
+h2{font-family:var(--hand);font-weight:400;font-size:2rem;line-height:1.15;margin:0 0 10px;color:var(--lila)}
+.lead{font-size:1.1rem;font-weight:500;margin:0 0 20px}
+p{margin:0 0 14px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px}
+.how{display:grid;gap:10px;margin:22px 0}
+.how div{display:flex;gap:12px;align-items:flex-start}
+.how span{flex:none;width:28px;height:28px;border-radius:50%;background:var(--lila-soft);color:var(--lila);display:grid;place-items:center;font-weight:600;font-size:14px}
+.note{font-size:13px;color:var(--muted)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;background:var(--lila);color:#fff;font:600 1rem var(--body);padding:15px 28px;cursor:pointer;min-height:52px}
+.btn:hover{filter:brightness(1.08)}
+.btn:focus-visible,.opt:focus-visible,.back:focus-visible,input:focus-visible{outline:3px solid var(--lime);outline-offset:2px}
+.btn[disabled]{opacity:.5;cursor:default}
+.prog{display:flex;align-items:center;gap:12px;margin-bottom:22px;font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.bar{flex:1;height:8px;border-radius:99px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--lila);border-radius:99px;transition:width .25s}
+.q{font-size:1.25rem;font-weight:600;line-height:1.4;margin:0 0 18px;text-wrap:balance}
+.opts{display:grid;gap:10px}
+.opt{text-align:left;font:400 1rem var(--body);color:var(--ink);background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:14px 16px;cursor:pointer;line-height:1.45}
+.opt:hover{border-color:var(--lila)}
+.opt.sel{border-color:var(--lila);background:var(--lila-soft)}
+.back{margin-top:18px;background:none;border:0;color:var(--muted);font:500 14px var(--body);cursor:pointer;padding:6px 0}
+.quote{font-family:var(--hand);font-size:1.7rem;line-height:1.2;margin:4px 0 16px}
+.tag{display:inline-block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;background:var(--lime);color:var(--ink);padding:3px 10px;border-radius:6px;margin-bottom:10px}
+.second{border-left:4px solid var(--lila);padding:4px 0 4px 14px;margin:18px 0 0;font-size:.95rem}
+.mail{margin-top:26px}
+.mail h3{margin:0 0 6px;font-size:1.15rem}
+.mail ul{margin:8px 0 16px;padding-left:20px}
+label{display:block;font-size:13px;font-weight:500;margin:12px 0 4px}
+input[type=text],input[type=email]{width:100%;font:16px var(--body);padding:13px 14px;border:1.5px solid var(--line);border-radius:12px;background:var(--paper);color:var(--ink)}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--muted);margin:14px 0 18px}
+.consent input{margin-top:3px;width:18px;height:18px;flex:none;accent-color:var(--lila)}
+.consent a{color:var(--lila)}
+.err{color:#B3261E;font-size:14px;margin-top:10px}
+.foot{margin-top:40px;font-size:12px;color:var(--muted);display:flex;gap:16px;flex-wrap:wrap}
+.foot a{color:var(--muted)}
+#nl-consent{position:fixed;left:16px;right:16px;bottom:max(16px,env(safe-area-inset-bottom));z-index:99;max-width:560px;margin:0 auto;background:var(--ink);color:#F2F0EB;border:3px solid var(--lime);border-radius:16px;padding:18px 20px;box-shadow:0 10px 40px rgba(0,0,0,.3);display:none;font-size:.92rem}
+#nl-consent.show{display:block}
+#nl-consent p{margin:0 0 12px}
+#nl-consent a{color:var(--lime)}
+#nl-consent .nl-btns{display:flex;gap:10px;flex-wrap:wrap}
+#nl-consent button{flex:1 1 140px;cursor:pointer;font:600 .95rem var(--body);border-radius:999px;padding:11px 16px;border:2px solid var(--lime)}
+#nl-consent .nl-accept{background:var(--lila);color:#fff;border-color:var(--lila)}
+#nl-consent .nl-decline{background:transparent;color:#F2F0EB}
+[hidden]{display:none!important}
+@media (prefers-reduced-motion:reduce){.bar i{transition:none}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="brand"><b>neurodiversleben</b> · Scham-Test</div>
+
+  <!-- INTRO -->
+  <section id="s-intro">
+    <h1>Du ruhst dich aus und erholst dich trotzdem nie? <mark>Vielleicht ist es Scham.</mark></h1>
+    <p class="lead">Finde in 3 Minuten heraus, welche innere Kritikerin dir deine Pausen schwer macht.</p>
+    <p>Du bist erschöpft, aber Ausruhen funktioniert nicht richtig? Du liegst auf dem Sofa und kannst trotzdem nicht abschalten? Oft steckt dahinter keine fehlende Disziplin, sondern Scham. Und eine innere Kritikerin, die sich genau dann meldet, wenn du endlich zur Ruhe kommen willst.</p>
+    <p>Dieser Test zeigt dir, welche Stimme bei dir am lautesten ist. Und ob sie vielleicht schon ziemlich leise geworden ist.</p>
+    <div class="how">
+      <div><span>10</span><p style="margin:0">Fragen, ungefähr 3 Minuten.</p></div>
+      <div><span>1</span><p style="margin:0">Wähle jeweils die Antwort, die sich am ehesten nach dir anfühlt. Es gibt kein Richtig oder Falsch. Wenn keine perfekt passt, nimm die, die am nächsten dran ist.</p></div>
+    </div>
+    <button class="btn" id="start" type="button">Los geht's</button>
+    <p class="note" style="margin-top:16px">Dieser Test ist eine Einladung zur Selbstreflexion, keine Diagnose. Du kannst jederzeit aufhören.</p>
+  </section>
+
+  <!-- FRAGEN -->
+  <section id="s-quiz" hidden>
+    <div class="prog"><span id="pnum">1 / 10</span><div class="bar"><i id="pbar" style="width:10%"></i></div></div>
+    <p class="q" id="qtext"></p>
+    <div class="opts" id="opts"></div>
+    <button class="back" id="back" type="button">← Zurück</button>
+  </section>
+
+  <!-- ERGEBNIS -->
+  <section id="s-result" hidden>
+    <span class="tag">Dein Ergebnis</span>
+    <h2 id="rname"></h2>
+    <p class="quote" id="rquote"></p>
+    <p id="rtext"></p>
+    <div id="rextra"></div>
+
+    <div class="mail box">
+      <h3>Dein ganzes Ergebnis per Mail</h3>
+      <p style="margin:0">Ich schick dir:</p>
+      <ul>
+        <li>dein vollständiges Ergebnis, mit dem Warum dahinter</li>
+        <li>eine kleine Idee für deine Kritikerin, ganz ohne Pflicht</li>
+        <li>meinen Gratis-Guide „Ausruhen reicht nicht?“</li>
+      </ul>
+      <form id="form" novalidate>
+        <label for="f-name">Vorname</label>
+        <input type="text" id="f-name" name="name" autocomplete="given-name">
+        <label for="f-email">E-Mail</label>
+        <input type="email" id="f-email" name="email" autocomplete="email" required>
+        <div class="consent">
+          <input type="checkbox" id="f-ok" required>
+          <label for="f-ok" style="margin:0;font-weight:400">Ja, schick mir mein Ergebnis und den Guide. Danach bekomme ich Mails von neurodiversleben zu Neurodivergenz und meinen Angeboten. Abmelden geht jederzeit. Mehr dazu in der <a href="/datenschutz/" target="_blank" rel="noopener">Datenschutzerklärung</a>.</label>
+        </div>
+        <button class="btn" id="send" type="submit">Ergebnis zuschicken</button>
+        <p class="err" id="ferr" hidden></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- DANKE -->
+  <section id="s-done" hidden>
+    <h2>Fast geschafft!</h2>
+    <p>Schau in dein Postfach und bestätige deine Anmeldung. Erst dann kann ich dir dein Ergebnis schicken.</p>
+    <p class="note">Nichts da? Schau auch im Spam- oder Werbung-Ordner nach. Die Mail kommt von neurodiversleben.</p>
+  </section>
+
+  <div class="foot"><a href="/impressum/">Impressum</a><a href="/datenschutz/">Datenschutz</a></div>
+</main>
+
+<script>
+/* ===== EINSTELLUNGEN ===== */
+var ML_ACCOUNT = "2344410";
+var ML_FORM_ID = "203759518402741873";          // ID des MailerLite-Formulars "Scham-Test"
+var ML_FIELD_TYP = "scham_typ";           // Feld für den Haupttyp
+var ML_FIELD_NEBEN = "scham_nebentyp";    // Feld für Nebentyp / Zusatz
+
+/* ===== FRAGEN ===== */
+var Q = [
+ ["Du hast einen freien Nachmittag ohne Pläne. Was passiert in dir?",[
+  ["Ich mache zuerst noch schnell ein paar Sachen fertig. Dann vielleicht.","B"],
+  ["Ich frage mich, ob gerade jemand meine Hilfe bräuchte.","W"],
+  ["Ich freu mich und lasse ihn einfach passieren.","P"],
+  ["Irgendwann höre ich: Andere schaffen viel mehr als du.","E"],
+  ["Mein Körper bleibt angespannt, als käme gleich noch was.","A"]]],
+ ["Du liegst tagsüber auf dem Sofa, und jemand kommt rein.",[
+  ["Ich setz mich schnell auf und tu beschäftigt.","E"],
+  ["Mein Herz rast kurz, obwohl eigentlich nichts los ist.","A"],
+  ["Ich sage schnell: Ich hab heute eh schon voll viel geschafft.","B"],
+  ["Ich bleib liegen. Ist ja mein Sofa.","P"],
+  ["Ich frag gleich, ob die Person was braucht.","W"]]],
+ ["Wann fühlt sich eine Pause für dich erlaubt an?",[
+  ["Wenn es allen anderen gut geht.","W"],
+  ["Wenn ich sie brauche. Das reicht als Grund.","P"],
+  ["Wenn die To-do-Liste abgehakt ist.","B"],
+  ["Wenn um mich herum wirklich alles ruhig und sicher ist.","A"],
+  ["Eigentlich nie. Im Hinterkopf läuft immer: Sei nicht so faul.","E"]]],
+ ["Nach einem anstrengenden Tag sagst du ein Treffen ab. Danach …",[
+  ["komme ich trotzdem nicht runter, alles in mir summt weiter.","A"],
+  ["denke ich die ganze Zeit an die Person, die jetzt enttäuscht ist.","W"],
+  ["höre ich: Du bist halt unzuverlässig.","E"],
+  ["bin ich erleichtert und genieße den Abend.","P"],
+  ["mache ich wenigstens noch was Produktives, damit es sich lohnt.","B"]]],
+ ["Welcher Satz klingt am ehesten nach deinem Kopf in einer Pause?",[
+  ["Brauchst du die Pause wirklich oder bist du nur bequem?","E"],
+  ["Das kannst du dir erst leisten, wenn alles erledigt ist.","B"],
+  ["Meistens ist es da ziemlich still. Schön eigentlich.","P"],
+  ["Kein Satz. Eher ein Rauschen, ein Gefühl von: Gleich passiert was.","A"],
+  ["Die anderen brauchen dich doch.","W"]]],
+ ["Ein freies Wochenende oder Urlaub. In den ersten Tagen …",[
+  ["plane ich alles durch, damit die Zeit sinnvoll genutzt wird.","B"],
+  ["komme ich ziemlich schnell an.","P"],
+  ["checke ich ständig Nachrichten, falls jemand was braucht.","W"],
+  ["braucht mein Körper ewig, um runterzukommen. Ich bin unruhig und schlafe schlecht.","A"],
+  ["habe ich das Gefühl, mich rechtfertigen zu müssen, warum ich frei brauche.","E"]]],
+ ["Du merkst, dass du erschöpft bist. Was ist dein erster Impuls?",[
+  ["Erst schauen, dass alle versorgt sind.","W"],
+  ["Mich zusammenreißen. Andere haben es schwerer.","E"],
+  ["Ich spür es kaum, weil in mir alles auf Hochtouren läuft.","A"],
+  ["Noch durchziehen, dann belohne ich mich mit einer Pause.","B"],
+  ["Runterfahren, so gut es geht.","P"]]],
+ ["Woher kennst du die Stimme, die dich beim Ausruhen kritisiert?",[
+  ["Ich kenne sie, aber sie hat nicht mehr viel zu sagen.","P"],
+  ["Von früher. Sie klingt nach alten Sätzen von Eltern oder Lehrer:innen.","E"],
+  ["Aus Schule und Job, wo mein Wert immer an Leistung hing.","B"],
+  ["Ich war immer die, die sich um alle kümmert.","W"],
+  ["Ich weiß nicht, ob es eine Stimme ist. Eher ein Zustand.","A"]]],
+ ["Jemand sagt zu dir: Gönn dir doch mal was. Du denkst:",[
+  ["Ich wüsste gar nicht, wie das geht, ohne innerlich angespannt zu sein.","A"],
+  ["Gern, sobald ich fertig bin.","B"],
+  ["Mach ich. Danke für die Erinnerung.","P"],
+  ["Und wer macht dann alles andere?","W"],
+  ["Wofür? So anstrengend war es doch gar nicht.","E"]]],
+ ["Wie fühlt sich echtes Nichtstun für dich an?",[
+  ["Wie verschwendete Zeit.","B"],
+  ["Wie etwas, wofür man sich schämen sollte.","E"],
+  ["Wie Auftanken.","P"],
+  ["Egoistisch.","W"],
+  ["Wie Warten auf etwas Schlimmes.","A"]]]
+];
+
+/* ===== TYPEN (auf der Seite nur Kurzfassung, der Rest kommt per Mail) ===== */
+var T = {
+ B:{name:"Die Buchhalterin", quote:"„Hast du dir das schon verdient?“",
+    text:"Deine innere Kritikerin führt Buch. Jede Pause muss bezahlt werden, mit erledigten Aufgaben, abgehakten Listen, einem produktiven Tag. Erst wenn die Rechnung aufgeht, darfst du dich hinsetzen. Nur: Die Liste wird nie leer. Also wird die Pause immer weiter verschoben."},
+ E:{name:"Das Echo", quote:"„Brauchst du die Pause wirklich oder bist du nur bequem?“",
+    text:"Deine innere Kritikerin spricht mit geliehenen Stimmen. Sätze, die du irgendwann von außen gehört hast, laufen in dir weiter: faul, übertrieben, so schlimm ist es doch nicht. Sobald du stillstehst, meldet sich das Echo und stellt infrage, ob deine Erschöpfung überhaupt echt ist."},
+ W:{name:"Die Wächterin", quote:"„Die anderen brauchen dich doch.“",
+    text:"Deine innere Kritikerin passt auf alle auf, nur nicht auf dich. Sobald du dich ausruhst, denkt sie an die Menschen, die gerade etwas brauchen könnten. Eine Pause fühlt sich dann an, als würdest du jemanden im Stich lassen. Also bleibst du in Bereitschaft."},
+ A:{name:"Die Alarmanlage", quote:"Sie sagt gar nichts. Sie bleibt einfach an.",
+    text:"Deine innere Kritikerin arbeitet ohne Worte. Statt Sätzen gibt es Anspannung: einen Körper, der nicht runterkommt, ein Rauschen im Hintergrund, das Gefühl, dass gleich etwas passiert. Ruhe fühlt sich nicht erholsam an, sondern unsicher."},
+ P:{name:"Die Kritikerin in Pause", quote:"„…“ (Es ist ziemlich still.)",
+    text:"Du kannst dich ausruhen, ohne dich dafür zu rechtfertigen. Deine innere Kritikerin ist zwar nicht verschwunden, aber sie hat nicht mehr viel zu sagen. Das ist keine Selbstverständlichkeit. Für viele neurodivergente Menschen ist es ein langer Weg dorthin."}
+};
+function voice(k){ return k==="A" ? "ganz ohne Worte: Dein Körper bleibt in Habachtstellung." : "mit dem Satz: "+T[k].quote }
+
+/* ===== AUSWERTUNG ===== */
+function evaluate(ans){
+  var c={B:0,E:0,W:0,A:0,P:0}; ans.forEach(function(k){c[k]++});
+  var others=["B","E","W","A"].sort(function(a,b){return c[b]-c[a]});
+  var maxAll=Math.max(c.B,c.E,c.W,c.A,c.P);
+  if(c.P>=5 && c.P===maxAll){
+    var o=others[0];
+    return {main:"P", second:c[o]>=3?o:null, mode:c[o]>=3?"pausePlus":"none", c:c};
+  }
+  var m=others[0], s=others[1];
+  if(c[m]===c[s]) return {main:m, second:s, mode:"tie", c:c};
+  return {main:m, second:c[s]>=2?s:null, mode:c[s]>=2?"second":"none", c:c};
+}
+
+/* ===== ABLAUF ===== */
+var $=function(id){return document.getElementById(id)};
+var i=0, ans=[], res=null;
+function show(id){["s-intro","s-quiz","s-result","s-done"].forEach(function(s){$(s).hidden=(s!==id)}); window.scrollTo(0,0)}
+function renderQ(){
+  var q=Q[i]; $("qtext").textContent=q[0];
+  $("pnum").textContent=(i+1)+" / "+Q.length; $("pbar").style.width=((i+1)/Q.length*100)+"%";
+  var box=$("opts"); box.innerHTML="";
+  q[1].forEach(function(o){
+    var b=document.createElement("button"); b.type="button"; b.className="opt"+(ans[i]===o[1]?" sel":""); b.textContent=o[0];
+    b.onclick=function(){ ans[i]=o[1]; b.classList.add("sel"); setTimeout(next,180) };
+    box.appendChild(b);
+  });
+  $("back").style.visibility=i===0?"hidden":"visible";
+}
+function next(){ if(i<Q.length-1){i++;renderQ()} else finish() }
+function finish(){
+  res=evaluate(ans); var t=T[res.main];
+  $("rname").textContent=(res.mode==="tie"?t.name+" & "+T[res.second].name:t.name);
+  $("rquote").textContent=t.quote; $("rtext").textContent=t.text;
+  var x=$("rextra"); x.innerHTML="";
+  if(res.mode!=="none"){
+    var d=document.createElement("div"); d.className="second";
+    if(res.mode==="tie") d.textContent="Bei dir teilen sich zwei Kritikerinnen die Bühne: "+t.name+" und "+T[res.second].name+". Im Mail bekommst du beide Ergebnisse. Schau, welche sich gerade lauter anfühlt.";
+    else if(res.mode==="pausePlus") d.textContent="Du kannst dich meistens gut ausruhen. In stressigen Phasen meldet sich aber "+T[res.second].name.replace("Die ","die ").replace("Das ","das ")+" "+voice(res.second)+" Es lohnt sich, diese Stimme zu kennen, damit sie dich nicht überrascht.";
+    else d.textContent="Deine zweite Stimme: "+T[res.second].name+". Neben deiner Hauptkritikerin meldet sie sich manchmal auch, "+voice(res.second)+" Die meisten Menschen haben mehr als eine innere Kritikerin.";
+    x.appendChild(d);
+  }
+  show("s-result");
+}
+$("start").onclick=function(){ i=0; ans=[]; show("s-quiz"); renderQ() };
+$("back").onclick=function(){ if(i>0){i--;renderQ()} };
+
+/* ===== ANMELDUNG ===== */
+$("form").addEventListener("submit",function(e){
+  e.preventDefault();
+  var email=$("f-email").value.trim(), err=$("ferr"); err.hidden=true;
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ err.textContent="Bitte gib eine gültige E-Mail-Adresse ein."; err.hidden=false; return }
+  if(!$("f-ok").checked){ err.textContent="Bitte bestätige kurz, dass ich dir Mails schicken darf."; err.hidden=false; return }
+  var neben = res.mode==="tie" ? "Gleichstand: "+T[res.second].name : res.mode==="pausePlus" ? "In Stressphasen: "+T[res.second].name : res.mode==="second" ? T[res.second].name : "";
+  var fd=new FormData();
+  fd.append("fields[email]",email);
+  fd.append("fields[name]",$("f-name").value.trim());
+  fd.append("fields["+ML_FIELD_TYP+"]",T[res.main].name);
+  fd.append("fields["+ML_FIELD_NEBEN+"]",neben);
+  fd.append("ml-submit","1"); fd.append("anticsrf","true");
+  var btn=$("send"); btn.disabled=true; btn.textContent="Wird gesendet …";
+  fetch("https://assets.mailerlite.com/jsonp/"+ML_ACCOUNT+"/forms/"+ML_FORM_ID+"/subscribe",{method:"POST",body:fd})
+   .then(function(r){ return r.json().catch(function(){return {success:r.ok}}) })
+   .then(function(j){ if(j && j.success===false) throw new Error(); if(window.fbq) fbq("track","Lead",{content_name:"Scham-Test",scham_typ:T[res.main].name}); show("s-done") })
+   .catch(function(){ err.textContent="Das hat leider nicht geklappt. Prüf kurz deine Verbindung und versuch es nochmal."; err.hidden=false; btn.disabled=false; btn.textContent="Ergebnis zuschicken" });
+});
+</script>
+<div id="nl-consent" role="dialog" aria-live="polite" aria-label="Cookie-Einwilligung">
+  <p>Ich nutze einen Marketing-Pixel (Meta), um zu sehen, ob meine Anzeigen funktionieren. Der lädt nur, wenn du zustimmst. Mehr dazu in der <a href="/datenschutz/" target="_blank" rel="noopener">Datenschutzerklärung</a>.</p>
+  <div class="nl-btns"><button type="button" class="nl-accept" id="nl-accept">Akzeptieren</button><button type="button" class="nl-decline" id="nl-decline">Nur Notwendige</button></div>
+</div>
+<script>
+(function(){
+  var PIXEL_ID='1850603119282068', KEY='nl_pixel_consent';
+  window.nlLoadPixel=function(){
+    if(window.fbq) return;
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', PIXEL_ID); fbq('track','PageView');
+  };
+  function hide(){document.getElementById('nl-consent').classList.remove('show')}
+  var saved=null;try{saved=localStorage.getItem(KEY)}catch(e){}
+  if(saved==='granted') window.nlLoadPixel();
+  document.getElementById('nl-accept').onclick=function(){try{localStorage.setItem(KEY,'granted')}catch(e){}hide();window.nlLoadPixel()};
+  document.getElementById('nl-decline').onclick=function(){try{localStorage.setItem(KEY,'denied')}catch(e){}hide()};
+  if(saved!=='granted'&&saved!=='denied') document.getElementById('nl-consent').classList.add('show');
+})();
+fetch("https://assets.mailerlite.com/jsonp/2344410/forms/203759518402741873/takel").catch(function(){});
+</script>
+</body>
+</html>

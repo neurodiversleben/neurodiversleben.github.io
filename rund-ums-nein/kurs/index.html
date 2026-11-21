@@ -8,15 +8,17 @@
 <meta name="robots" content="noindex">
 <meta property="og:title" content="Rund ums Nein · Dein Mini-Kurs">
 <meta property="og:description" content="Die drei Videos und die Grenzen-Notfallkarte.">
+<link rel="preload" href="/assets/fonts/more-sugar-regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Poppins:wght@400;500;600&display=swap">
-<style>
+<style>@font-face{font-family:"More Sugar";font-style:normal;font-weight:400;font-display:swap;src:url("/assets/fonts/more-sugar-regular.woff2") format("woff2")}
+
 /* Layout: eine ruhige Spalte, ein Schritt pro Bildschirm (Intro → Frage → Ergebnis → Mail) */
 :root{
   --lila:#5B16D6; --lila-soft:#EEE6FD; --lime:#C4F000;
   --ink:#2B2B33; --muted:#66627A; --paper:#FAF9F5; --card:#FFFFFF; --line:#E4E0EC;
-  --hand:"Gochi Hand","Comic Sans MS",cursive; --body:"Poppins",system-ui,-apple-system,sans-serif;
+  --hand:"More Sugar","Gochi Hand","Comic Sans MS",cursive; --body:"Poppins",system-ui,-apple-system,sans-serif;
 }
 *{box-sizing:border-box}
 html,body{margin:0}
@@ -24,9 +26,9 @@ body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:
 .wrap{max-width:640px;margin:0 auto;padding:28px max(18px,env(safe-area-inset-left)) 64px max(18px,env(safe-area-inset-right))}
 .brand{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:28px}
 .brand b{color:var(--lila);font-weight:600}
-h1{font-family:var(--hand);font-weight:400;font-size:clamp(2.2rem,7vw,3.1rem);line-height:1.08;margin:0 0 14px;text-wrap:balance}
+h1{font-family:var(--hand);font-weight:400;text-transform:uppercase;letter-spacing:.04em;font-size:clamp(2.2rem,7vw,3.1rem);line-height:1.08;margin:0 0 14px;text-wrap:balance}
 h1 mark{background:linear-gradient(transparent 55%,var(--lime) 55%);color:inherit;padding:0 .1em}
-h2{font-family:var(--hand);font-weight:400;font-size:2rem;line-height:1.15;margin:0 0 10px;color:var(--lila)}
+h2{font-family:var(--hand);font-weight:400;text-transform:uppercase;letter-spacing:.04em;font-size:2rem;line-height:1.15;margin:0 0 10px;color:var(--lila)}
 .lead{font-size:1.1rem;font-weight:500;margin:0 0 20px}
 p{margin:0 0 14px}
 .box{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px}
